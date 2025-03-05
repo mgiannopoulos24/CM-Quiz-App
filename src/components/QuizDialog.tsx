@@ -75,6 +75,29 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
     }
   };
 
+  // Function to replace newlines with <br /> tags and handle block-level math
+  const formatQuestionText = (text: string) => {
+    return text.split('\n').map((line, index) => {
+      // Check if the line contains block-level math (\[ ... \])
+      if (line.includes('\\[') && line.includes('\\]')) {
+        // Render the line as a block-level math expression
+        return (
+          <MathJax key={index} inline={false}>
+            {line}
+          </MathJax>
+        );
+      } else {
+        // Render the line as regular text with line breaks
+        return (
+          <span key={index}>
+            {line}
+            <br />
+          </span>
+        );
+      }
+    });
+  };
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
       <MathJaxContext key={currentQuestion}>
@@ -90,7 +113,7 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
           </div>
 
           <div className="mb-6 max-h-48 overflow-y-auto">
-            <MathJax>{question.question}</MathJax>
+            <MathJax>{formatQuestionText(question.question)}</MathJax>
           </div>
 
           <div className="space-y-2 max-h-96 overflow-y-auto">
