@@ -15,17 +15,15 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
   const [expandedAnswers, setExpandedAnswers] = useState<boolean[]>([]);
 
   useEffect(() => {
-    // Initialize expandedAnswers with all values set to false
     if (quiz.questions[currentQuestion]) {
       setExpandedAnswers(new Array(quiz.questions[currentQuestion].answers.length).fill(false));
     }
   }, [currentQuestion, quiz]);
 
-  // Reset states when dialog is closed
   useEffect(() => {
     if (!isOpen) {
       setSelectedAnswer(null);
-      setCurrentQuestion(0); // Reset to the first question when the dialog is closed
+      setCurrentQuestion(0);
     }
   }, [isOpen]);
 
@@ -35,7 +33,6 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
 
   const handleAnswerClick = (index: number) => {
     setSelectedAnswer(index);
-    // Toggle the expanded state for the clicked answer
     setExpandedAnswers(prev => {
       const newState = [...prev];
       newState[index] = !newState[index];
@@ -75,27 +72,14 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
     }
   };
 
-  // Function to replace newlines with <br /> tags and handle block-level math
-  const formatQuestionText = (text: string) => {
-    return text.split('\n').map((line, index) => {
-      // Check if the line contains block-level math (\[ ... \])
-      if (line.includes('\\[') && line.includes('\\]')) {
-        // Render the line as a block-level math expression
-        return (
-          <MathJax key={index} inline={false}>
-            {line}
-          </MathJax>
-        );
-      } else {
-        // Render the line as regular text with line breaks
-        return (
-          <span key={index}>
-            {line}
-            <br />
-          </span>
-        );
-      }
-    });
+  // Function to replace \n with <br /> for rendering newlines
+  const renderWithNewlines = (text: string) => {
+    return text.split('\n').map((line, index) => (
+      <span key={index}>
+        {line}
+        <br />
+      </span>
+    ));
   };
 
   return (
@@ -112,8 +96,18 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
             </button>
           </div>
 
-          <div className="mb-6 max-h-48 overflow-y-auto">
-            <MathJax>{formatQuestionText(question.question)}</MathJax>
+          <div className="mb-6 max-h-60 overflow-y-auto">
+            <MathJax>{renderWithNewlines(question.question)}</MathJax>
+            {question.image && (
+              <div className="flex justify-center mt-4">
+                <img 
+                  src={question.image} 
+                  alt="Question Illustration" 
+                  className="rounded-lg max-w-full h-auto" 
+                  style={{ maxHeight: '300px' }} // Adjust the max height as needed
+                />
+              </div>
+            )}
           </div>
 
           <div className="space-y-2 max-h-96 overflow-y-auto">
@@ -123,7 +117,7 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
                   onClick={() => handleAnswerClick(index)}
                   className={getAnswerClassName(index)}
                 >
-                  <MathJax>{answer.text}</MathJax>
+                  <MathJax>{renderWithNewlines(answer.text)}</MathJax>
                 </div>
                 {selectedAnswer !== null && (
                   <div className="mt-4">
@@ -144,7 +138,7 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
                     {expandedAnswers[index] && (
                       <div className="mt-2 p-4 bg-gray-50 rounded-lg">
                         <MathJax>
-                          {answer.description}
+                          {renderWithNewlines(answer.description)}
                         </MathJax>
                       </div>
                     )}
