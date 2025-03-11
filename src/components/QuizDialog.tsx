@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import { ChevronDown, ChevronUp, X } from 'lucide-react';
 import { Quiz } from '../types';
+import { loadImage } from '../utils/loadImage'; 
 
 interface QuizDialogProps {
   quiz: Quiz;
@@ -13,6 +14,7 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [expandedAnswers, setExpandedAnswers] = useState<boolean[]>([]);
+  const [currentImage, setCurrentImage] = useState<string | null>(null); // State for the current image
 
   useEffect(() => {
     if (quiz.questions[currentQuestion]) {
@@ -26,6 +28,18 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
       setCurrentQuestion(0);
     }
   }, [isOpen]);
+
+  // Load the image dynamically when the question changes
+  useEffect(() => {
+    const question = quiz.questions[currentQuestion];
+    if (question.image) {
+      loadImage(question.image).then((image) => {
+        setCurrentImage(image);
+      });
+    } else {
+      setCurrentImage(null);
+    }
+  }, [currentQuestion, quiz]);
 
   if (!isOpen) return null;
 
@@ -72,7 +86,6 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
     }
   };
 
-  // Function to replace \n with <br /> for rendering newlines
   const renderWithNewlines = (text: string) => {
     return text.split('\n').map((line, index) => (
       <span key={index}>
@@ -98,13 +111,13 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
 
           <div className="mb-6 max-h-60 overflow-y-auto">
             <MathJax>{renderWithNewlines(question.question)}</MathJax>
-            {question.image && (
+            {currentImage && (
               <div className="flex justify-center mt-4">
                 <img 
-                  src={question.image} 
+                  src={currentImage} 
                   alt="Question Illustration" 
                   className="rounded-lg max-w-full h-auto" 
-                  style={{ maxHeight: '300px' }} // Adjust the max height as needed
+                  style={{ maxHeight: '300px' }} 
                 />
               </div>
             )}
