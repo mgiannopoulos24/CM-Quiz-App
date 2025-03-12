@@ -2,6 +2,7 @@ import lec1 from './lec1.json';
 import lec4 from './lec4.json';
 import lec5 from './lec5.json';
 import lec6 from './lec6.json';
+import lec7 from './lec7.json';
 
 
 export const quizzes = [
@@ -28,5 +29,11 @@ export const quizzes = [
     title: "Κουίζ 4",
     description: "",
     questions: lec6
-  }
+  },
+  {
+    id: "quiz-5",
+    title: "Κουίζ 5",
+    description: "",
+    questions: lec7
+  },
 ];
