@@ -28,20 +28,20 @@
         "description": "Αυτή η πρόταση είναι αληθής, καθώς από την αρχή της έντασης (inclusion-exclusion principle), ισχύει: \\[ \\lvert \\mathit{S} \\cup \\mathit{T} \\rvert = \\lvert \\mathit{S} \\rvert + \\lvert \\mathit{T} \\rvert - \\lvert \\mathit{S} \\cap \\mathit{T} \\rvert. \\]. Αναδιατάσσοντας, προκύπτει: \\[ \\lvert \\mathit{S} \\cup \\mathit{T} \\rvert = \\lvert \\mathit{S} \\rvert + \\rvert \\mathit{T} \\rvert - \\lvert \\mathit{S} \\cap \\mathit{T} \\lvert, \\] οπότε η ανισότητα \\( \\geq \\) ισχύει ως ισότητα."
       },
       {
-        "text":"\\( \\lvert \\mathit{S} \\rvert + \\lvert \\mathit{T} \\rvert \\leq \\lvert \\mathit{S} \\cup \\mathit {T} \\rvert + \\lvert \\mathit{S} \\cap \\mathit{T} \\rvert \\)",
+        "text": "\\( \\lvert \\mathit{S} \\rvert + \\lvert \\mathit{T} \\rvert \\leq \\lvert \\mathit{S} \\cup \\mathit {T} \\rvert + \\lvert \\mathit{S} \\cap \\mathit{T} \\rvert \\)",
         "correct": true,
         "description": "Αυτή η πρόταση είναι επίσης αληθής, καθώς από την ίδια αρχή της έντασης, όπως αναφέρθηκε παραπάνω, ισχύει: \\[ \\lvert \\mathit{S} \\rvert + \\lvert \\mathit{T} \\rvert = \\lvert \\mathit{S} \\cup \\mathit{T} \\rvert + \\lvert \\mathit{S} \\cap \\mathit{T} \\rvert, \\] οπότε η ανισότητα \\( \\leq \\) ισχύει ως ισότητα."
       },
       {
         "text": "\\( \\lvert (( \\mathit{S} \\setminus \\mathit{T} ) \\cup ( \\mathit{T} \\setminus \\mathit{S} )) \\cap ( \\mathit{S} \\cap \\mathit{T} ) \\rvert \\leq \\text{min} \\{ \\lvert \\mathit{S} \\rvert , \\lvert \\mathit{T} \\rvert \\} \\)",
         "correct": true,
-        "description": "Αυτή η πρόταση είναι αληθής, καθώς το σύνολο \\( ( \\mathit{S} \\setminus \\mathit{T} ) \\cup ( \\mathit{T} \\setminus \\mathit{S} ) \\) είναι η συμμετρική διαφορά των \\( \\mathit{S} \\) και \\( \\mathit{T} \\), και η τομή του με το \\( \\mathit{S} \\cap \\mathit{T} \\) είναι το κενό σύνολο. Επομένως, το πλήθος των στοιχείων του είναι 0, που είναι σίγουρα μικρότερο ή ίσο του \\( \\text{min} \\{ \\lvert \\mathit{S} \\rvert , \\lvert \\mathit{T} \\rvert \\} \\)."    
+        "description": "Αυτή η πρόταση είναι αληθής, καθώς το σύνολο \\( ( \\mathit{S} \\setminus \\mathit{T} ) \\cup ( \\mathit{T} \\setminus \\mathit{S} ) \\) είναι η συμμετρική διαφορά των \\( \\mathit{S} \\) και \\( \\mathit{T} \\), και η τομή του με το \\( \\mathit{S} \\cap \\mathit{T} \\) είναι το κενό σύνολο. Επομένως, το πλήθος των στοιχείων του είναι 0, που είναι σίγουρα μικρότερο ή ίσο του \\( \\text{min} \\{ \\lvert \\mathit{S} \\rvert , \\lvert \\mathit{T} \\rvert \\} \\)."
       }
     ]
   },
   {
     "question": "Αν για δύο προβλήματα απόφασης \\( \\mathit{A}, \\mathit{B} \\) υπάρχει αναγωγή \\( \\mathit{A} \\leq_p \\mathit{B} \\) και το \\( \\mathit{B} \\) είναι \\( \\mathit{NP}\\)-complete τότε",
-    "answers":[
+    "answers": [
       {
         "text": "το \\( \\mathit{A} \\) είναι \\( \\mathit{NP} \\)-complete.",
         "correct": false,
