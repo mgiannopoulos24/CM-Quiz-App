@@ -69,5 +69,5 @@ export const quizzes = [
     title: 'Κουίζ 10',
     description: '',
     questions: lec12,
-  }
+  },
 ];

@@ -17,16 +17,16 @@
   {
     "question": "Έχουμε 10 πράσινους, 10 μπλε, 10 κόκκινους βώλους. Διαλέγοντας 10 βώλους στο σκοτάδι, θα πάρουμε εγγυημένα 4 του ίδιου χρώματος.",
     "answers": [
-        {
-            "text": "Σωστό.",
-            "correct": true,
-            "description": ""
-        },
-        {
-            "text": "Λάθος.",
-            "correct": false,
-            "description": ""
-        }
+      {
+        "text": "Σωστό.",
+        "correct": true,
+        "description": ""
+      },
+      {
+        "text": "Λάθος.",
+        "correct": false,
+        "description": ""
+      }
     ]
   }
 ]
