@@ -1,16 +1,17 @@
-import lec1 from './lec1.json';
-import lec4 from './lec4.json';
-import lec5 from './lec5.json';
-import lec6 from './lec6.json';
-import lec7 from './lec7.json';
-import lec8 from './lec8.json';
-import lec9 from './lec9.json';
-import lec10 from './lec10.json';
-import lec11 from './lec11.json';
-import lec12 from './lec12.json';
-import lec13 from './lec13.json';
-import lec14 from './lec14.json';
-import lec15 from './lec15.json';
+import lec1 from '../data/lec1.json';
+import lec4 from '../data/lec4.json';
+import lec5 from '../data/lec5.json';
+import lec6 from '../data/lec6.json';
+import lec7 from '../data/lec7.json';
+import lec8 from '../data/lec8.json';
+import lec9 from '../data/lec9.json';
+import lec10 from '../data/lec10.json';
+import lec11 from '../data/lec11.json';
+import lec12 from '../data/lec12.json';
+import lec13 from '../data/lec13.json';
+import lec14 from '../data/lec14.json';
+import lec15 from '../data/lec15.json';
+import lec16 from '../data/lec16.json';
 
 export const quizzes = [
   {
@@ -90,5 +91,11 @@ export const quizzes = [
     title: 'Κουίζ 13',
     description: '',
     questions: lec15,
+  },
+  {
+    id: 'quiz-14',
+    title: 'Κουίζ 14',
+    description: '',
+    questions: lec16,
   },
 ];
