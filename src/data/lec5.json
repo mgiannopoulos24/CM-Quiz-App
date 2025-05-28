@@ -5,12 +5,12 @@
       {
         "text": "είναι σωστή.",
         "correct": false,
-        "description": "Η βάση της επαγωγής για \\( \\mathit{n} = 1 \\) είναι σωστή, αλλά η επαγωγική υπόθεση πρόταση δεν αντιστοιχεί στο σωστό αποτέλεσμα. Η σωστή σειρά είναι: \n \\[ \\frac{1}{1 \\cdot 2} + \\frac{1}{2 \\cdot 3} + \\dots + \\frac{1}{n \\cdot (n+1)} = 1 - \\frac{1}{n+1}, \\] και όχι \\( \\frac{3}{2} - \\frac{1}{n} \\). Επομένως, η απόδειξη είναι λάθος."
+        "description": ""
       },
       {
         "text": "είναι λάθος.",
         "correct": true,
-        "description": "Η βάση της επαγωγής για \\( n = 1 \\) είναι σωστή, αλλά η επαγωγική υπόθεση πρόταση δεν αντιστοιχεί στο σωστό αποτέλεσμα. Η σωστή σειρά είναι: \n \\[ \\frac{1}{1 \\cdot 2} + \\frac{1}{2 \\cdot 3} + \\dots + \\frac{1}{n \\cdot (n+1)} = 1 - \\frac{1}{n+1}, \\] και όχι \\( \\frac{3}{2} - \\frac{1}{n} \\). Επομένως, η απόδειξη είναι λάθος."
+        "description": ""
       }
     ]
   },
@@ -20,22 +20,22 @@
       {
         "text": "\\( \\lvert \\mathit{S} \\times \\mathit{T} \\rvert = \\lvert \\mathit{S} \\rvert \\lvert \\mathit{T} \\rvert \\)",
         "correct": true,
-        "description": "Αυτή η πρόταση είναι αληθής, καθώς το πλήθος των στοιχείων του καρτεσιανού γινομένου \\( \\mathit{S} \\times \\mathit{T} \\) ισούται με το γινόμενο των πλήθων των στοιχείων των συνόλων \\( \\mathit{S} \\) και \\( \\mathit{T} \\)."
+        "description": ""
       },
       {
         "text": "\\( \\lvert \\mathit{S} \\rvert + \\lvert \\mathit{T} \\rvert \\geq \\lvert \\mathit{S} \\cup \\mathit {T} \\rvert + \\lvert \\mathit{S} \\cap \\mathit{T} \\rvert \\)",
         "correct": true,
-        "description": "Αυτή η πρόταση είναι αληθής, καθώς από την αρχή της έντασης (inclusion-exclusion principle), ισχύει: \\[ \\lvert \\mathit{S} \\cup \\mathit{T} \\rvert = \\lvert \\mathit{S} \\rvert + \\lvert \\mathit{T} \\rvert - \\lvert \\mathit{S} \\cap \\mathit{T} \\rvert. \\]. Αναδιατάσσοντας, προκύπτει: \\[ \\lvert \\mathit{S} \\cup \\mathit{T} \\rvert = \\lvert \\mathit{S} \\rvert + \\rvert \\mathit{T} \\rvert - \\lvert \\mathit{S} \\cap \\mathit{T} \\lvert, \\] οπότε η ανισότητα \\( \\geq \\) ισχύει ως ισότητα."
+        "description": ""
       },
       {
         "text": "\\( \\lvert \\mathit{S} \\rvert + \\lvert \\mathit{T} \\rvert \\leq \\lvert \\mathit{S} \\cup \\mathit {T} \\rvert + \\lvert \\mathit{S} \\cap \\mathit{T} \\rvert \\)",
         "correct": true,
-        "description": "Αυτή η πρόταση είναι επίσης αληθής, καθώς από την ίδια αρχή της έντασης, όπως αναφέρθηκε παραπάνω, ισχύει: \\[ \\lvert \\mathit{S} \\rvert + \\lvert \\mathit{T} \\rvert = \\lvert \\mathit{S} \\cup \\mathit{T} \\rvert + \\lvert \\mathit{S} \\cap \\mathit{T} \\rvert, \\] οπότε η ανισότητα \\( \\leq \\) ισχύει ως ισότητα."
+        "description": ""
       },
       {
         "text": "\\( \\lvert (( \\mathit{S} \\setminus \\mathit{T} ) \\cup ( \\mathit{T} \\setminus \\mathit{S} )) \\cap ( \\mathit{S} \\cap \\mathit{T} ) \\rvert \\leq \\text{min} \\{ \\lvert \\mathit{S} \\rvert , \\lvert \\mathit{T} \\rvert \\} \\)",
         "correct": true,
-        "description": "Αυτή η πρόταση είναι αληθής, καθώς το σύνολο \\( ( \\mathit{S} \\setminus \\mathit{T} ) \\cup ( \\mathit{T} \\setminus \\mathit{S} ) \\) είναι η συμμετρική διαφορά των \\( \\mathit{S} \\) και \\( \\mathit{T} \\), και η τομή του με το \\( \\mathit{S} \\cap \\mathit{T} \\) είναι το κενό σύνολο. Επομένως, το πλήθος των στοιχείων του είναι 0, που είναι σίγουρα μικρότερο ή ίσο του \\( \\text{min} \\{ \\lvert \\mathit{S} \\rvert , \\lvert \\mathit{T} \\rvert \\} \\)."
+        "description": ""
       }
     ]
   },
@@ -45,17 +45,17 @@
       {
         "text": "το \\( \\mathit{A} \\) είναι \\( \\mathit{NP} \\)-complete.",
         "correct": false,
-        "description": "Η ύπαρξη αναγωγής \\( \\mathit{A} \\leq_p \\mathit{B} \\) και το γεγονός ότι το \\( \\mathit{B} \\) είναι \\( \\mathit{NP} \\)-complete δεν σημαίνει ότι το \\( \\mathit{A} \\) είναι επίσης \\( \\mathit{NP} \\)-complete. Το \\( \\mathit{A} \\) μπορεί να ανήκει στο \\( \\mathit{NP} \\) χωρίς να είναι \\( \\mathit{NP} \\)-complete."
+        "description": ""
       },
       {
         "text": "το \\( \\mathit{A} \\) ανήκει στο \\( \\mathit{P} \\).",
         "correct": false,
-        "description": "Η αναγωγή \\( \\mathit{A} \\leq_p \\mathit{B} \\) δεν εξασφαλίζει ότι το \\( \\mathit{A} \\) ανήκει στο \\( \\mathit{P} \\). Το \\( \\mathit{A} \\) μπορεί να είναι \\( \\mathit{NP} \\)-δύσκολο ή ακόμα και \\( \\mathit{NP} \\)-complete, οπότε δεν είναι απαραίτητα στο \\( \\mathit{P} \\)."
+        "description": ""
       },
       {
         "text": "το \\( \\mathit{A} \\) ανήκει στο \\( \\mathit{NP} \\).",
         "correct": true,
-        "description": "Εφόσον υπάρχει αναγωγή \\( \\mathit{A} \\leq_p \\mathit{B} \\) και το \\( \\mathit{B} \\) ανήκει στο \\( \\mathit{NP} \\), το \\( \\mathit{A} \\) πρέπει επίσης να ανήκει στο \\( \\mathit{NP} \\), καθώς η αναγωγή διατηρεί την ιδιότητα του \\( \\mathit{NP} \\)."
+        "description": ""
       }
     ]
   }
