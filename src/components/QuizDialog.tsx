@@ -46,6 +46,11 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
   const question = quiz.questions[currentQuestion];
 
   const handleAnswerClick = (index: number) => {
+    // Prevent clicking if an answer is already selected
+    if (selectedAnswer !== null) {
+      return;
+    }
+
     setSelectedAnswer(index);
     setExpandedAnswers((prev) => {
       const newState = [...prev];
@@ -63,13 +68,19 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
     if (selectedAnswer === null) {
       return 'border border-gray-300 p-4 rounded-lg mb-2 hover:bg-gray-50 cursor-pointer';
     }
+
+    // Show correct answers in green
     if (question.answers[index].correct) {
-      return 'border border-green-500 bg-green-50 p-4 rounded-lg mb-2';
+      return 'border border-green-500 bg-green-50 p-4 rounded-lg mb-2 cursor-default';
     }
-    if (index === selectedAnswer && !question.answers[index].correct) {
-      return 'border border-red-500 bg-red-50 p-4 rounded-lg mb-2';
+
+    // Show ALL wrong answers in red when any answer is selected
+    if (!question.answers[index].correct) {
+      return 'border border-red-500 bg-red-50 p-4 rounded-lg mb-2 cursor-default';
     }
-    return 'border border-gray-300 p-4 rounded-lg mb-2 opacity-50';
+
+    // Fallback (shouldn't reach here)
+    return 'border border-gray-300 p-4 rounded-lg mb-2 cursor-default';
   };
 
   const goToNextQuestion = () => {
@@ -98,7 +109,7 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
       <MathJaxContext key={currentQuestion}>
-        <div className="w-full max-w-2xl rounded-xl bg-white p-6">
+        <div className="w-full max-w-2xl rounded-xl bg-white p-6 md:max-w-4xl md:p-8">
           <div className="mb-6 flex items-center justify-between">
             <h3 className="text-xl font-bold">
               {currentQuestion + 1}/{quiz.questions.length}{' '}
@@ -109,7 +120,7 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
             </button>
           </div>
 
-          <div className="mb-6 max-h-60 overflow-y-auto">
+          <div className="max-h-70 mb-6 overflow-y-auto md:max-h-80">
             <MathJax>{renderWithNewlines(question.question)}</MathJax>
             {currentImage && (
               <div className="mt-4 flex justify-center">
@@ -123,7 +134,7 @@ export default function QuizDialog({ quiz, isOpen, onClose }: QuizDialogProps) {
             )}
           </div>
 
-          <div className="max-h-96 space-y-2 overflow-y-auto">
+          <div className="md:max-h-70 max-h-60 space-y-1 overflow-y-auto">
             {question.answers.map((answer, index) => (
               <div key={index}>
                 <div onClick={() => handleAnswerClick(index)} className={getAnswerClassName(index)}>
